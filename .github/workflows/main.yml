@@ -15,7 +15,7 @@ jobs:
       run: |
         export SHELL=/bin/bash
         eval $(minikube -p minikube docker-env)
-        docker build -f ./Dockerfile -t nginx:0.1.0 .
+        docker build -f ./Dockerfile -t lighttpd-webserver:0.1.0 .
         echo -n "verifying images:"
         docker images
     - name: Deploy to minikube
