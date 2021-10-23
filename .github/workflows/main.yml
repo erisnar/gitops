@@ -19,7 +19,7 @@ jobs:
         echo -n "verifying images:"
         docker images
     - name: Deploy to minikube
-      run:
+      run: |
         kubectl apply -f deployment.yml
         kubectl get pods -o wide
     - name: Sleep for 60 seconds
