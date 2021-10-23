@@ -1,4 +1,6 @@
 name: CI
+# Triggered when code is pushed to any branch in a repository
+on: push
 jobs:
   job1:
     runs-on: ubuntu-latest
