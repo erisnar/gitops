@@ -21,11 +21,9 @@ jobs:
     - name: Deploy to minikube
       run:
         kubectl apply -f deployment.yml
-    - name: Sleep for 60 seconds
-      run: sleep 60s
-      shell: bash
     - name: Test service URLs
       run: |
+        kubectl get pods -o wide
         minikube service list
         minikube service example --url
         echo "------------------opening the service------------------"
