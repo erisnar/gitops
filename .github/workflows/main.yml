@@ -7,6 +7,10 @@ jobs:
     name: build example and deploy to minikube
     steps:
     - uses: actions/checkout@v2
+    - name: Kube proxy does not like github actions
+      run: |
+        export SHELL=/bin/bash
+        sudo sysctl net/netfilter/nf_conntrack_max=131072
     - name: Start minikube
       uses: medyagh/setup-minikube@master
     - name: Try the cluster !
