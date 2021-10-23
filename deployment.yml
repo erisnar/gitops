@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: example
+  name: webserver
 spec:
   selector:
     matchLabels:
-      app: example
+      app: webserver
   replicas: 1
   template:
     metadata:
       labels:
-        app: example
+        app: webserver
     spec:
       containers:
-        - name: example-api
+        - name: webserver-api
           imagePullPolicy: Never
           image: lighttpd-webserver:0.1.0
           ports:
@@ -22,11 +22,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: example
+  name: webserver
 spec:
   type: NodePort
   selector:
-    app: example
+    app: webserver
   ports:
     - protocol: TCP
       targetPort: 80
