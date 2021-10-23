@@ -28,5 +28,7 @@ spec:
   selector:
     app: example
   ports:
-    - port: 80
+    - protocol: TCP
       targetPort: 80
+      port: 80
+      nodePort: 30080

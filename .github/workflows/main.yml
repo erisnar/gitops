@@ -28,10 +28,9 @@ jobs:
     - name: Test service URLs
       run: |
         kubectl get pods -o wide
+        minikube ip
+        kubectl describe pods
         minikube service list
-        kubectl get pods -o wide
-        curl http://172.18.0.4:80
-        curl localhost:80
         minikube service example --url
         echo "------------------opening the service------------------"
         curl $(minikube service example --url)
