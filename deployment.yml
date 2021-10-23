@@ -6,7 +6,7 @@ spec:
     selector:
         matchLabels:
             app: example
-    replicas: 2
+    replicas: 1
     template:
         metadata:
             labels:
@@ -15,7 +15,7 @@ spec:
             containers:
                 - name: example-api
                   imagePullPolicy: Never
-                  image: httpie-jq:latest
+                  image: nginx:0.1.0
                   resources:
                       limits:
                           cpu: 50m
