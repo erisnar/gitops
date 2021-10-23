@@ -6,7 +6,7 @@ on:
 jobs:
   job1:
     runs-on: ubuntu-latest
-    name: build example and deploy to minikube
+    name: build webserver and deploy to minikube
     steps:
     - uses: actions/checkout@v2
     - name: Kube proxy does not like github actions
@@ -33,6 +33,6 @@ jobs:
     - name: Test service URLs
       run: |
         minikube service list
-        minikube service example --url
+        minikube service webserver --url
         echo "------------------opening the service------------------"
-        curl $(minikube service example --url)
+        curl $(minikube service webserver --url)
