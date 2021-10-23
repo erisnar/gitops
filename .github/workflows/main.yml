@@ -21,12 +21,12 @@ jobs:
     - name: Deploy to minikube
       run:
         kubectl apply -f deployment.yml
-    - name: Sleep for 30 seconds
-      run: sleep 30s
+    - name: Sleep for 60 seconds
+      run: sleep 60s
       shell: bash
     - name: Test service URLs
       run: |
         minikube service list
         minikube service example --url
         echo "------------------opening the service------------------"
-        curl $(minikube service example --url)        
+        curl $(minikube service example --url)
